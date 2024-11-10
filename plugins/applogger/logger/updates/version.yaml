@@ -1,3 +1,5 @@
 v1.0.1: First version of Logger
 v1.0.2:
   - create_checkouts_table.php
+v1.0.3:
+  - add is_late column and change studentName to student_name

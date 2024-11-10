@@ -18,7 +18,8 @@ return new class extends Migration
     {
         Schema::create('applogger_logger_checkouts', function(Blueprint $table) {
             $table->id();
-            $table->string("studentName");
+            $table->string("student_name");
+            $table->boolean("is_late");
             $table->timestamps();
         });
     }
