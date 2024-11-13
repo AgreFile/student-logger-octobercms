@@ -7,7 +7,7 @@ use Model;
  *
  * @link https://docs.octobercms.com/3.x/extend/system/models.html
  */
-class Checkouts extends Model
+class Checkouts extends Model // REVIEW - Taký detail - Meno modelu by malo byť vždy v singulári, čiže Checkout
 {
     use \October\Rain\Database\Traits\Validation;
 

@@ -4,14 +4,17 @@ date_default_timezone_set("Europe/Prague");
 use AppLogger\Logger\Models\Checkouts;
 use Carbon\Carbon;
 
+// REVIEW - v routes.php by si mal mať iba endpoint definície, takáto funkcia by mala byť skôr v modeli (prípadne v service class-e). Tým pádom by si mohol robno urobiť $student->getCheckouts() napr.
+// V Leveli 2 uvidíš že sa to dá robiť ešte lepšie, a to cez relations :DD
 function scopeByStudent($student_name){
     return Checkouts::where("student_name", $student_name)->get();
 }
 
 Route::post("/logcheckout",function(){
     $checkoutModel = new Checkouts();
-    $student_name = filter_input(INPUT_POST, 'student_name', FILTER_SANITIZE_STRING);
+    $student_name = filter_input(INPUT_POST, 'student_name', FILTER_SANITIZE_STRING); // REVIEW - Toto sa dá zjednodušiť na post('student_name'), je to to isté len o dosť prehľadnejšie
     if (!$student_name) {
+        // REVIEW - Ak nastala chyba, mal by si hodiť exception, napr. takto: throw new Exception('Invalid student name', 400);
         return response()->json(['error' => 'Invalid student name'], 400);
     }
     $checkoutModel->student_name = $student_name;

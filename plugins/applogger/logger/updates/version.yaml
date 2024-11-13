@@ -3,3 +3,6 @@ v1.0.2:
   - create_checkouts_table.php
 v1.0.3:
   - add is_late column and change studentName to student_name
+# REVIEW - verzia v1.0.3 úplne nedáva zmysel, pretože si tam napísal aké zmeny nastali, ale reálne sú tieto zmeny uplatnené v migrácii z verzie v1.0.2
+# Vo verzii v1.0.2 máš migráciu 'create_checkouts_table.php' kde je ten is_late a student_name column, takže buď ten note môžeš presunúť alebo tam ani nemusí byť
+# Migrácie a version control vedia byť dosť mätúce takže ak by ti to nedávalo zmysel kľudne píš
